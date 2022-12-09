@@ -29,19 +29,22 @@ pub fn get_sum(a: i32, b: i32) -> i32 {
 
 
 
-fn _do_test(example: &str, a: i32, b: i32, expected: i32){
+fn _do_test(a: i32, b: i32, expected: i32){
     let result = get_sum(a, b);
     assert!(
         result == expected,
-        "\n{example:?}: Input = {a:?} and {b:?}, expected = {expected:?} but got {result:?}\n"
+        "\nInput = {a:?} and {b:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: a = 1, b = 2, Output: 3
-    _do_test("ex_1", 1, 2, 3);
+    _do_test(1, 2, 3);
+}
 
+#[test]
+fn example_2(){
     //Example 2: Input: a = 2, b = 3, Output: 5
-    _do_test("ex_2", 2, 3, 5);
+    _do_test(2, 3, 5);
 }

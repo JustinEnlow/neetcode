@@ -68,28 +68,28 @@ pub fn search(nums: Vec<i32>, target: i32) -> i32 {
 
 
 
-fn _do_test(example: &str, nums: &[i32], target: i32, expected: i32){
+fn _do_test(nums: &[i32], target: i32, expected: i32){
     let result = search(nums.to_vec(), target);
     assert!(
         result == expected,
-        "\n{example:?}: Input = {nums:?} and {target:?}, expected = {expected:?} but got {result:?}\n"
+        "\nInput = {nums:?} and {target:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
-    //Example 1:
-    //Input: nums = [4,5,6,7,0,1,2], target = 0
-    //Output: 4
-    _do_test("ex_1", &[4, 5, 6, 7, 0, 1, 2], 0, 4);
+fn example_1(){
+    //Example 1: Input: nums = [4,5,6,7,0,1,2], target = 0, Output: 4
+    _do_test(&[4, 5, 6, 7, 0, 1, 2], 0, 4);
+}
 
-    //Example 2:
-    //Input: nums = [4,5,6,7,0,1,2], target = 3
-    //Output: -1
-    _do_test("ex_2", &[4, 5, 6, 7, 0, 1, 2], 3, -1);
+#[test]
+fn example_2(){
+    //Example 2: Input: nums = [4,5,6,7,0,1,2], target = 3, Output: -1
+    _do_test(&[4, 5, 6, 7, 0, 1, 2], 3, -1);
+}
 
-    //Example 3:
-    //Input: nums = [1], target = 0
-    //Output: -1
-    _do_test("ex_3", &[1], 0, -1);
+#[test]
+fn example_3(){
+    //Example 3: Input: nums = [1], target = 0, Output: -1
+    _do_test(&[1], 0, -1);
 }

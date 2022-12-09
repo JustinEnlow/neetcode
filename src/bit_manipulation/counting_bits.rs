@@ -31,21 +31,24 @@ pub fn count_bits(n: i32) -> Vec<i32> {
 
 
 
-fn _do_test(example: &str, n: i32, expected: &[i32]){
+fn _do_test(n: i32, expected: &[i32]){
     let result = count_bits(n);
     assert!(
         result == expected,
-        "\n{example:?}: input = {n:?}, expected = {expected:?} but got {result:?}\n"
+        "\ninput = {n:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: n = 2, Output: [0,1,1]
     //Explanation: 0 --> 0, 1 --> 1, 2 --> 10
-    _do_test("ex_1", 2, &[0, 1, 1]);
+    _do_test(2, &[0, 1, 1]);
+}
 
+#[test]
+fn example_2(){
     //Example 2: Input: n = 5, Output: [0,1,1,2,1,2]
     //Explanation: 0 --> 0, 1 --> 1, 2 --> 10, 3 --> 11, 4 --> 100, 5 --> 101
-    _do_test("ex_2", 5, &[0, 1, 1, 2, 1, 2]);
+    _do_test(5, &[0, 1, 1, 2, 1, 2]);
 }

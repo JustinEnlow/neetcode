@@ -55,31 +55,37 @@ pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
 
 
 
-fn _do_test(example: &str, numbers: &[i32], target: i32, expected: &[i32]){
+fn _do_test(numbers: &[i32], target: i32, expected: &[i32]){
     let result = two_sum(numbers.to_vec(), target);
     assert!(
         result == expected.to_vec(),
-        "\n{example:?}: input = {numbers:?} and {target:?}, expected = {expected:?} but got {result:?}\n"
+        "\ninput = {numbers:?} and {target:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1:
-    //Input: numbers = [2,7,11,15], target = 9
-    //Output: [1,2]
-    //Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
-    _do_test("ex_1", &[2, 7, 11, 15], 9, &[1, 2]);
+    //Input: numbers = [2,7,11,15], target = 9, Output: [1,2]
+    //Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. 
+    //We return [1, 2].
+    _do_test(&[2, 7, 11, 15], 9, &[1, 2]);
+}
 
+#[test]
+fn example_2(){
     //Example 2:
-    //Input: numbers = [2,3,4], target = 6
-    //Output: [1,3]
-    //Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
-    _do_test("ex_2", &[2, 3, 4], 6, &[1, 3]);
+    //Input: numbers = [2,3,4], target = 6, Output: [1,3]
+    //Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. 
+    //We return [1, 3].
+    _do_test(&[2, 3, 4], 6, &[1, 3]);
+}
 
+#[test]
+fn example_3(){
     //Example 3:
-    //Input: numbers = [-1,0], target = -1
-    //Output: [1,2]
-    //Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
-    _do_test("ex_3", &[-1, 0], -1, &[1, 2]);
+    //Input: numbers = [-1,0], target = -1, Output: [1,2]
+    //Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. 
+    //We return [1, 2].
+    _do_test(&[-1, 0], -1, &[1, 2]);
 }

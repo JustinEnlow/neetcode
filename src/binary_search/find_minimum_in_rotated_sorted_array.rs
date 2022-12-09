@@ -56,31 +56,31 @@ pub fn find_min(nums: Vec<i32>) -> i32 {
 
 
 
-fn _do_test(example: &str, nums: &[i32], expected: i32){
+fn _do_test(nums: &[i32], expected: i32){
     let result = find_min(nums.to_vec());
     assert!(
         result == expected,
-        "\n{example:?}: Input = {nums:?}, expected = {expected:?} but got {result:?}\n"
+        "\nInput = {nums:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
-    //Example 1:
-    //Input: nums = [3,4,5,1,2]
-    //Output: 1
+fn example_1(){
+    //Example 1: Input: nums = [3,4,5,1,2], Output: 1
     //Explanation: The original array was [1,2,3,4,5] rotated 3 times.
-    _do_test("ex_1", &[3, 4, 5, 1, 2], 1);
+    _do_test(&[3, 4, 5, 1, 2], 1);
+}
 
-    //Example 2:
-    //Input: nums = [4,5,6,7,0,1,2]
-    //Output: 0
+#[test]
+fn example_2(){
+    //Example 2: Input: nums = [4,5,6,7,0,1,2], Output: 0
     //Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
-    _do_test("ex_2", &[4, 5, 6, 7, 0, 1, 2], 0);
+    _do_test(&[4, 5, 6, 7, 0, 1, 2], 0);
+}
 
-    //Example 3:
-    //Input: nums = [11,13,15,17]
-    //Output: 11
+#[test]
+fn example_3(){
+    //Example 3: Input: nums = [11,13,15,17], Output: 11
     //Explanation: The original array was [11,13,15,17] and it was rotated 4 times. 
-    _do_test("ex_3", &[11, 13, 15, 17], 11);
+    _do_test(&[11, 13, 15, 17], 11);
 }

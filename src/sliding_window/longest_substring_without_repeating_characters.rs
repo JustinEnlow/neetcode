@@ -38,33 +38,33 @@ pub fn length_of_longest_substring(s: String) -> i32 {
 
 
 
-fn _do_test(example: &str, s: &str, expected: i32){
+fn _do_test(s: &str, expected: i32){
     let result = length_of_longest_substring(s.to_string());
     assert!(
         result == expected,
-        "\n{example:?}: input = {s:?}, expected = {expected:?} but got {result:?}\n"
+        "\ninput = {s:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
-    //Example 1:
-    //Input: s = "abcabcbb"
-    //Output: 3
+fn example_1(){
+    //Example 1: Input: s = "abcabcbb", Output: 3
     //Explanation: The answer is "abc", with the length of 3.
-    _do_test("ex_1", "abcabcbb", 3);
+    _do_test("abcabcbb", 3);
+}
 
-    //Example 2:
-    //Input: s = "bbbbb"
-    //Output: 1
+#[test]
+fn example_2(){
+    //Example 2: Input: s = "bbbbb", Output: 1
     //Explanation: The answer is "b", with the length of 1.
-    _do_test("ex_2", "bbbbb", 1);
+    _do_test("bbbbb", 1);
+}
 
-    //Example 3:
-    //Input: s = "pwwkew"
-    //Output: 3
+#[test]
+fn example_3(){
+    //Example 3: Input: s = "pwwkew", Output: 3
     //Explanation: The answer is "wke", with the length of 3.
     //Notice that the answer must be a substring, "pwke" is a subsequence and 
     //not a substring.
-    _do_test("ex_3", "pwwkew", 3);
+    _do_test("pwwkew", 3);
 }

@@ -38,29 +38,32 @@ pub fn reverse_bits(x: u32) -> u32 {
 
 
 
-fn _do_test(example: &str, n: u32, expected: u32){
+fn _do_test(n: u32, expected: u32){
     let result = reverse_bits(n);
     assert!(
         result == expected,
-        "\n{example:?}: input = {n:?}, expected = {expected:?} but got {result:?}\n"
+        "\ninput = {n:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1:
     //Input: n = 00000010100101000001111010011100
     //Output:    964176192 (00111001011110000010100101000000)
     //Explanation: The input binary string 00000010100101000001111010011100 
     //represents the unsigned integer 43261596, so return 964176192 which its 
     //binary representation is 00111001011110000010100101000000.
-    _do_test("ex_1", 0b00000010100101000001111010011100, 964176192);
+    _do_test(0b00000010100101000001111010011100, 964176192);
+}
 
+#[test]
+fn example_2(){
     //Example 2:
     //Input: n = 11111111111111111111111111111101
     //Output:   3221225471 (10111111111111111111111111111111)
     //Explanation: The input binary string 11111111111111111111111111111101 
     //represents the unsigned integer 4294967293, so return 3221225471 which its 
     //binary representation is 10111111111111111111111111111111.
-    _do_test("ex_2", 0b11111111111111111111111111111101, 3221225471);
+    _do_test(0b11111111111111111111111111111101, 3221225471);
 }

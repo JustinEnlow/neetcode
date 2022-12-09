@@ -56,36 +56,44 @@ pub fn eval_rpn(tokens: Vec<String>) -> i32 {
 
 
 
-fn _do_test(example: &str, tokens: &[String], expected: i32){
+fn _do_test(tokens: &[String], expected: i32){
     let result = eval_rpn(tokens.to_vec());
     assert!(
         result == expected,
-        "\n{example:?}: input = {tokens:?}, expected {expected:?} but got {result:?}\n"
+        "\ninput = {tokens:?}, expected {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
-    //Example 1:
-    //Input: tokens = ["2","1","+","3","*"]
-    //Output: 9
+fn example_1(){
+    //Example 1: 
+    //Input: tokens = ["2","1","+","3","*"], Output: 9
     //Explanation: ((2 + 1) * 3) = 9
     _do_test(
-        "ex_1", 
         &["2".to_string(), "1".to_string(), "+".to_string(), "3".to_string(), "*".to_string()], 
         9
     );
+}
 
+#[test]
+fn example_2(){
     //Example 2:
-    //Input: tokens = ["4","13","5","/","+"]
-    //Output: 6
+    //Input: tokens = ["4","13","5","/","+"], Output: 6
     //Explanation: (4 + (13 / 5)) = 6
     _do_test(
-        "ex_2", 
-        &["4".to_string(), "13".to_string(), "5".to_string(), "/".to_string(), "+".to_string()], 
+        &[
+            "4".to_string(), 
+            "13".to_string(), 
+            "5".to_string(), 
+            "/".to_string(), 
+            "+".to_string()
+        ], 
         6
     );
+}
 
+#[test]
+fn example_3(){
     //Example 3:
     //Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
     //Output: 22
@@ -97,10 +105,21 @@ fn tests(){
     //= 17 + 5
     //= 22
     _do_test(
-        "ex_3", 
-        &["10".to_string(), "6".to_string(), "9".to_string(), "3".to_string(), "+".to_string(), 
-            "-11".to_string(), "*".to_string(), "/".to_string(), "*".to_string(), "17".to_string(), 
-            "+".to_string(), "5".to_string(), "+".to_string()], 
+        &[
+            "10".to_string(), 
+            "6".to_string(), 
+            "9".to_string(), 
+            "3".to_string(), 
+            "+".to_string(), 
+            "-11".to_string(), 
+            "*".to_string(), 
+            "/".to_string(), 
+            "*".to_string(), 
+            "17".to_string(), 
+            "+".to_string(), 
+            "5".to_string(), 
+            "+".to_string()
+        ], 
         22
     );
 }

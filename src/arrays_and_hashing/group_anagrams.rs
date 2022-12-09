@@ -66,60 +66,63 @@ fn is_anagram(s: &str, t: &str) -> bool{
 
 
 
-fn _do_test(example: &str, strs: Vec<String>, expected: Vec<Vec<String>>){
+
+
+fn _do_test(strs: Vec<String>, expected: Vec<Vec<String>>){
     let strings = strs.clone();
     let result = group_anagrams(strs);
     assert!(
         result == expected,
-        "\n{example:?}: input = {strings:?}, Expected = {expected:?} but got {result:?}\n"
+        "\ninput = {strings:?}, Expected = {expected:?} but got {result:?}\n"
     );
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1:
     //Input: strs = ["eat","tea","tan","ate","nat","bat"]
     //Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-    //_do_test(
-    //    "ex_1", 
-    //    Vec::from(
-    //        [
-    //            "eat".to_string(), 
-    //            "tea".to_string(), 
-    //            "tan".to_string(), 
-    //            "ate".to_string(), 
-    //            "nat".to_string(), 
-    //            "bat".to_string()
-    //        ]
-    //    ), 
-    //    vec![
-    //        vec![String::from("bat")],
-    //        vec![
-    //            String::from("nat"),
-    //            String::from("tan")
-    //        ],
-    //        vec![
-    //            String::from("ate"),
-    //            String::from("eat"),
-    //            String::from("tea"),
-    //        ]
-    //    ]
-    //);        //this technically passes, but the order makes it fail. ignoring for now, will address later...
-    
-    //Example 2:
-    //Input: strs = [""]
-    //Output: [[""]]
     _do_test(
-        "ex_2", 
+        Vec::from(
+            [
+                "eat".to_string(), 
+                "tea".to_string(), 
+                "tan".to_string(), 
+                "ate".to_string(), 
+                "nat".to_string(), 
+                "bat".to_string()
+            ]
+        ), 
+        vec![
+            vec![String::from("bat")],
+            vec![
+                String::from("nat"),
+                String::from("tan")
+            ],
+            vec![
+                String::from("ate"),
+                String::from("eat"),
+                String::from("tea"),
+            ]
+        ]
+    );
+    // this technically passes, but the order makes it fail. ignoring for now, 
+    // will address later...
+}
+
+#[test]
+fn example_2(){
+    //Example 2: Input: strs = [""], Output: [[""]]
+    _do_test(
         Vec::from(["".to_string()]), 
         vec![vec!["".to_string()]]
     );
-    
-    //Example 3:
-    //Input: strs = ["a"]
-    //Output: [["a"]]
+}
+
+#[test]
+fn example_3(){
+    //Example 3: Input: strs = ["a"], Output: [["a"]]
     _do_test(
-        "ex_3", 
         Vec::from(["a".to_string()]), 
         vec![
             vec![String::from("a")]

@@ -68,28 +68,34 @@ fn contains_t_chars(substring: &str, t: &str) -> bool{
 
 
 
-fn _do_test(example: &str, s: &str, t: &str, expected: &str){
+fn _do_test(s: &str, t: &str, expected: &str){
     let result = min_window(s.to_string(), t.to_string());
     assert!(
         result == expected.to_string(),
-        "\n{example:?}: Input = {s:?} and {t:?}, expected = {expected:?} but \
+        "\nInput = {s:?} and {t:?}, expected = {expected:?} but \
         got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: s = "ADOBECODEBANC", t = "ABC", Output: "BANC"
     //Explanation: The minimum window substring "BANC" includes 'A', 'B', and 
     //'C' from string t.
-    _do_test("ex_1", "ADOBECODEBANC", "ABC", "BANC");
-    
+    _do_test("ADOBECODEBANC", "ABC", "BANC");
+}
+
+#[test]
+fn example_2(){
     //Example 2: Input: s = "a", t = "a", Output: "a"
     //Explanation: The entire string s is the minimum window.
-    _do_test("ex_2", "a", "a", "a");
-    
+    _do_test("a", "a", "a");
+}
+
+#[test]
+fn example_3(){
     //Example 3: Input: s = "a", t = "aa", Output: ""
     //Explanation: Both 'a's from t must be included in the window.
     //Since the largest window of s only has one 'a', return empty string.
-    _do_test("ex_3", "a", "aa", "");
+    _do_test("a", "aa", "");
 }

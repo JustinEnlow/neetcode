@@ -45,26 +45,25 @@ pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
 
 
 
-fn _do_test(example: &str, nums: &[i32], expected: &[i32]){
+fn _do_test(nums: &[i32], expected: &[i32]){
     let result = product_except_self(nums.to_vec());
     assert!(
         result == expected.to_vec(),
-        "\n{example:?}: input = {nums:?}, Expected = {expected:?} but got {result:?}\n"
+        "\ninput = {nums:?}, Expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
-    //Example 1:
-    //Input: nums = [1,2,3,4]
-    //Output: [24,12,8,6]
-    _do_test("ex_1", &[1, 2, 3, 4], &[24, 12, 8, 6]);
+fn example_1(){
+    //Example 1: Input: nums = [1,2,3,4], Output: [24,12,8,6]
+    _do_test(&[1, 2, 3, 4], &[24, 12, 8, 6]);
+}
 
-    //Example 2:
-    //Input: nums = [-1,1,0,-3,3]
-    //Output: [0,0,9,0,0]
-    _do_test("ex_2", &[-1, 1, 0, -3, 3], &[0, 0, 9, 0, 0]);
-} 
+#[test]
+fn example_2(){
+    //Example 2: Input: nums = [-1,1,0,-3,3], Output: [0,0,9,0,0]
+    _do_test(&[-1, 1, 0, -3, 3], &[0, 0, 9, 0, 0]);
+}
 
  
 

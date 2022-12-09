@@ -51,32 +51,32 @@ pub fn is_palindrome(s: String) -> bool {
 
 
 
-fn _do_test(example: &str, s: &str, expected: bool){
+fn _do_test(s: &str, expected: bool){
     let result = is_palindrome(s.to_string());
     assert!(
         result == expected,
-        "\n{example:?}: input = {s:?}, Expected = {expected:?} but got {result:?}\n"
+        "\ninput = {s:?}, Expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
-    //Example 1:
-    //Input: s = "A man, a plan, a canal: Panama"
-    //Output: true
+fn example_1(){
+    //Example 1: Input: s = "A man, a plan, a canal: Panama", Output: true
     //Explanation: "amanaplanacanalpanama" is a palindrome.
-    _do_test("ex_1", "A man, a plan, a canal: Panama", true);
+    _do_test("A man, a plan, a canal: Panama", true);
+}
 
-    //Example 2:
-    //Input: s = "race a car"
-    //Output: false
+#[test]
+fn example_2(){
+    //Example 2: Input: s = "race a car", Output: false
     //Explanation: "raceacar" is not a palindrome.
-    _do_test("ex_2", "race a car", false);
+    _do_test("race a car", false);
+}
 
-    //Example 3:
-    //Input: s = " "
-    //Output: true
+#[test]
+fn example_3(){
+    //Example 3: Input: s = " ", Output: true
     //Explanation: s is an empty string "" after removing non-alphanumeric characters.
     //Since an empty string reads the same forward and backward, it is a palindrome.
-    _do_test("ex_3", " ", true);
+    _do_test(" ", true);
 }

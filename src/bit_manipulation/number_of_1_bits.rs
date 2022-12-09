@@ -61,31 +61,37 @@ pub fn hamming_weight (n: u32) -> i32 {
 
 
 
-fn _do_test(example: &str, n: u32, expected: i32){
+fn _do_test(n: u32, expected: i32){
     let result = hamming_weight(n);
     assert!(
         result == expected,
-        "\n{example:?}: input = {n:032b}, expected = {expected:?} but got {result:?}\n"
+        "\ninput = {n:032b}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1:
     //Input: n = 00000000000000000000000000001011
     //Output: 3
     //Explanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.
-    _do_test("ex_1", 0b00000000000000000000000000001011, 3);
+    _do_test(0b00000000000000000000000000001011, 3);
+}
 
+#[test]
+fn example_2(){
     //Example 2:
     //Input: n = 00000000000000000000000010000000
     //Output: 1
     //Explanation: The input binary string 00000000000000000000000010000000 has a total of one '1' bit.
-    _do_test("ex_2", 0b00000000000000000000000010000000, 1);
+    _do_test(0b00000000000000000000000010000000, 1);
+}
 
+#[test]
+fn example_3(){
     //Example 3:
     //Input: n = 11111111111111111111111111111101
     //Output: 31
     //Explanation: The input binary string 11111111111111111111111111111101 has a total of thirty one '1' bits.
-    _do_test("ex_3", 0b11111111111111111111111111111101, 31);
+    _do_test(0b11111111111111111111111111111101, 31);
 }

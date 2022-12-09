@@ -45,26 +45,29 @@ pub fn character_replacement(s: String, k: i32) -> i32 {
 
 
 
-fn _do_test(example: &str, s: &str, k: i32, expected: i32){
+fn _do_test(s: &str, k: i32, expected: i32){
     let result = character_replacement(s.to_string(), k);
     assert!(
         result == expected,
-        "\n{example:?}: input = {s:?} and {k:?}, expected = {expected:?} but got {result:?}\n"
+        "\ninput = {s:?} and {k:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1:
     //Input: s = "ABAB", k = 2
     //Output: 4
     //Explanation: Replace the two 'A's with two 'B's or vice versa.
-    _do_test("ex_1", "ABAB", 2, 4);
+    _do_test("ABAB", 2, 4);
+}
 
+#[test]
+fn example_2(){
     //Example 2:
     //Input: s = "AABABBA", k = 1
     //Output: 4
     //Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
     //The substring "BBBB" has the longest repeating letters, which is 4.
-    _do_test("ex_2", "AABABBA", 1, 4);
+    _do_test("AABABBA", 1, 4);
 }

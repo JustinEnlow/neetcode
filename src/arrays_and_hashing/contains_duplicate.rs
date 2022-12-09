@@ -68,22 +68,28 @@ pub fn contains_duplicate(nums: Vec<i32>) -> bool {
 
 
 
-fn _do_test(example: &str, nums: &[i32], expected: bool){
+fn _do_test(nums: &[i32], expected: bool){
     let result = contains_duplicate(nums.to_vec());
     assert!(
         result == expected,
-        "\n{example:?}: input = {nums:?}, Expected = {expected:?} but got {result:?}\n"
+        "\ninput = {nums:?}, Expected = {expected:?} but got {result:?}\n"
     );
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: nums = [1,2,3,1], Output: true
-    _do_test("ex_1", &[1, 2, 3, 1], true);
-    
+    _do_test(&[1, 2, 3, 1], true);
+}
+
+#[test]
+fn example_2(){
     //Example 2: Input: nums = [1,2,3,4], Output: false
-    _do_test("ex_2", &[1, 2, 3, 4], false);
-    
+    _do_test(&[1, 2, 3, 4], false);
+}
+
+#[test]
+fn example_3(){
     //Example 3: Input: nums = [1,1,1,3,3,4,3,2,4,2], Output: true
-    _do_test("ex_3", &[1, 1, 1, 3, 3, 4, 3, 2, 4, 2], true);
+    _do_test(&[1, 1, 1, 3, 3, 4, 3, 2, 4, 2], true);
 }

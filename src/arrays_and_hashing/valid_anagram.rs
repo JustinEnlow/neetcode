@@ -70,19 +70,22 @@ fn build_hashmap_from_str(s: &str) -> HashMap<char, i32>{
 
 
 
-fn _do_test(example: &str, s: &str, t: &str, expected: bool){
+fn _do_test(s: &str, t: &str, expected: bool){
     let result = is_anagram(s.to_string(), t.to_string());
     assert!(
         result == expected,
-        "\n{example:?}: input = {s:?} and {t:?}, Expected = {expected:?} but got {result:?}\n"
+        "\ninput = {s:?} and {t:?}, Expected = {expected:?} but got {result:?}\n"
     );
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: s = "anagram", t = "nagaram", Output: true
-    _do_test("ex_1", "anagram", "nagaram", true);
-    
+    _do_test("anagram", "nagaram", true);
+}
+
+#[test]
+fn example_2(){
     //Example 2: Input: s = "rat", t = "car", Output: false
-    _do_test("ex_2", "rat", "car", false);
+    _do_test("rat", "car", false);
 }

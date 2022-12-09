@@ -56,22 +56,25 @@ pub fn max_area(height: Vec<i32>) -> i32{
 
 
 
-fn _do_test(example: &str, height: &[i32], expected: i32){
+fn _do_test(height: &[i32], expected: i32){
     let result = max_area(height.to_vec());
     assert!(
         result == expected,
-        "\n{example:?}: Input = {height:?}, expected {expected:?} but got {result:?}\n"
+        "\nInput = {height:?}, expected {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: height = [1,8,6,2,5,4,8,3,7], Output: 49
     //Explanation: The above vertical lines are represented by array 
     //[1,8,6,2,5,4,8,3,7]. In this case, the max area of water 
     //(blue section) the container can contain is 49.
-    _do_test("ex_1", &[1, 8, 6, 2, 5, 4, 8, 3, 7], 49);
+    _do_test(&[1, 8, 6, 2, 5, 4, 8, 3, 7], 49);
+}
 
+#[test]
+fn example_2(){
     //Example 2: Input: height = [1,1], Output: 1
-    _do_test("ex_2", &[1, 1], 1);
+    _do_test(&[1, 1], 1);
 }

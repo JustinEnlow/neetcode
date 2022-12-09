@@ -49,31 +49,37 @@ pub fn missing_number(nums: Vec<i32>) -> i32 {
 
 
 
-fn _do_test(example: &str, nums: &[i32], expected: i32){
+fn _do_test(nums: &[i32], expected: i32){
     let result = missing_number(nums.to_vec());
     assert!(
         result == expected,
-        "\n{example:?}: Input = {nums:?}, expected = {expected:?} but got {result:?}\n"
+        "\nInput = {nums:?}, expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: nums = [3,0,1], Output: 2
     //Explanation: n = 3 since there are 3 numbers, so all numbers are in the 
     //range [0,3]. 2 is the missing number in the range since it does not 
     //appear in nums.
-    _do_test("ex_1", &[3, 0, 1], 2);
+    _do_test(&[3, 0, 1], 2);
+}
 
+#[test]
+fn example_2(){
     //Example 2: Input: nums = [0,1], Output: 2
     //Explanation: n = 2 since there are 2 numbers, so all numbers are in the 
     //range [0,2]. 2 is the missing number in the range since it does not 
     //appear in nums.
-    _do_test("ex_2", &[0, 1], 2);
+    _do_test(&[0, 1], 2);
+}
 
+#[test]
+fn example_3(){
     //Example 3: Input: nums = [9,6,4,2,3,5,7,0,1], Output: 8
     //Explanation: n = 9 since there are 9 numbers, so all numbers are in the 
     //range [0,9]. 8 is the missing number in the range since it does not 
     //appear in nums.
-    _do_test("ex_3", &[9, 6, 4, 2, 3, 5, 7, 0, 1], 8);
+    _do_test(&[9, 6, 4, 2, 3, 5, 7, 0, 1], 8);
 }

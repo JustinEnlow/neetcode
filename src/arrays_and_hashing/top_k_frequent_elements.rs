@@ -53,19 +53,22 @@ pub fn top_k_frequent(nums: Vec<i32>, k: i32) -> Vec<i32> {
 
 
 
-fn _do_test(example: &str, nums: &[i32], k: i32, expected: &[i32]){
+fn _do_test(nums: &[i32], k: i32, expected: &[i32]){
     let result = top_k_frequent(nums.to_vec(), k);
     assert!(
         result == expected.to_vec(),
-        "\n{example:?}: input = {nums:?} and {k:?}, Expected = {expected:?} but got {result:?}\n"
+        "\ninput = {nums:?} and {k:?}, Expected = {expected:?} but got {result:?}\n"
     )
 }
 
 #[test]
-fn tests(){
+fn example_1(){
     //Example 1: Input: nums = [1,1,1,2,2,3], k = 2, Output: [1,2]
-    _do_test("ex_1", &[1, 1, 1, 2, 2, 3], 2, &[1, 2]);
+    _do_test(&[1, 1, 1, 2, 2, 3], 2, &[1, 2]);
+}
 
+#[test]
+fn example_2(){
     //Example 2: Input: nums = [1], k = 1, Output: [1]
-    _do_test("ex_2", &[1], 1, &[1]);
+    _do_test(&[1], 1, &[1]);
 }
