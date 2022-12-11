@@ -36,12 +36,16 @@ pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     
     for (i, &val) in nums.iter().enumerate(){
         let remainder = target - val;
-        match hashmap.get(&remainder){
-            Some(&j) => {
-                vec.push(j as i32);
-                vec.push(i as i32);
-            },
-            None => {}
+        //match hashmap.get(&remainder){
+        //    Some(&j) => {
+        //        vec.push(j as i32);
+        //        vec.push(i as i32);
+        //    },
+        //    None => {}
+        //}
+        if let Some(&j) = hashmap.get(&remainder){
+            vec.push(j as i32);
+            vec.push(i as i32);
         }
         hashmap.insert(val, i);
     }

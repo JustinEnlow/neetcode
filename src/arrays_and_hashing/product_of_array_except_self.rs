@@ -8,6 +8,9 @@
 //    -30 <= nums[i] <= 30
 //    The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer. 
 
+// Follow up: Can you solve the problem in O(1) extra space complexity? (The 
+// output array does not count as extra space for space complexity analysis.)
+
 
 
 
@@ -24,14 +27,13 @@ pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
             if i == j{
                 continue;
             }
+            
+            if first_run{
+                product = val;
+                first_run = false;
+            }
             else{
-                if first_run == true{
-                    product = val;
-                    first_run = false;
-                }
-                else{
-                    product = product * val;
-                }
+                product *= val; //product = product * val;
             }
         }
 
@@ -64,8 +66,3 @@ fn example_2(){
     //Example 2: Input: nums = [-1,1,0,-3,3], Output: [0,0,9,0,0]
     _do_test(&[-1, 1, 0, -3, 3], &[0, 0, 9, 0, 0]);
 }
-
- 
-
-// Follow up: Can you solve the problem in O(1) extra space complexity? (The 
-// output array does not count as extra space for space complexity analysis.)

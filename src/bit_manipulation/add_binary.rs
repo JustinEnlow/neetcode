@@ -11,8 +11,21 @@
 
 
 
-pub fn add_binary(a: String, _b: String) -> String{
-    a
+pub fn add_binary(a: String, b: String) -> String{
+    let mut first = i32::from_str_radix(&a, 2).unwrap();
+    let mut second = i32::from_str_radix(&b, 2).unwrap();
+
+    println!("first: {first:032b}, second: {second:032b}");
+
+    loop{
+        let carry = (first & second) << 1;
+        first ^= second; //first = first xor second
+        second = carry;
+
+        if second == 0{break;}
+    }
+    
+    format!("{first:b}")
 }
 
 
@@ -22,7 +35,7 @@ pub fn add_binary(a: String, _b: String) -> String{
 fn _do_test(a: &str, b: &str, expected: &str){
     let result = add_binary(a.to_string(), b.to_string());
     assert!(
-        &result == expected,
+        result == expected,
         "\nInput = {a:?} and {b:?}, expected {expected:?} but got {result:?}\n"
     )
 }

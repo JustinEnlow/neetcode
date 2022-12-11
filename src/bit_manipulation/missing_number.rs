@@ -34,12 +34,12 @@ pub fn missing_number(nums: Vec<i32>) -> i32 {
     /////////////////////////////////////////////////////////////
     let mut range_sum = 0;
     for i in 0..nums.len() + 1{
-        range_sum = range_sum + i;
+        range_sum += i; //range_sum = range_sum + i;
     }
 
     let mut num_sum = 0;
     for num in nums{
-        num_sum = num_sum + num;
+        num_sum += num; //num_sum = num_sum + num;
     }
     
     range_sum as i32 - num_sum

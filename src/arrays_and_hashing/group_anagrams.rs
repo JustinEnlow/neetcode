@@ -1,27 +1,28 @@
-// Given an array of strings strs, group the anagrams together. You can return 
-// the answer in any order.
-//
-// An Anagram is a word or phrase formed by rearranging the letters of a 
-// different word or phrase, typically using all the original letters exactly 
-// once.
+//! Given an array of strings strs, group the anagrams together. You can return 
+//! the answer in any order.
+//!
+//! An Anagram is a word or phrase formed by rearranging the letters of a 
+//! different word or phrase, typically using all the original letters exactly 
+//! once.
 
-//Constraints:
-//    1 <= strs.length <= 104
-//    0 <= strs[i].length <= 100
-//    strs[i] consists of lowercase English letters.
-
-
+//! Constraints:
+//!     1 <= strs.length <= 104
+//!     0 <= strs[i].length <= 100
+//!     strs[i] consists of lowercase English letters.
 
 
 
-// This finally kinda worked, but not passing tests. still more shit to figure out...
+
+
+
 pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
     let mut result: Vec<Vec<String>> = Vec::new();
         
     for (i, outer_val) in strs.iter().enumerate(){    
         let mut skip = false;
+        
         for idk in result.iter(){
-            if idk.contains(&outer_val){
+            if idk.contains(/*&*/outer_val){
                 skip = true;
             }
         }
@@ -31,15 +32,12 @@ pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
         }
     
         let mut anagrams = Vec::new();
-        //let mut not = Vec::new();
         anagrams.push(outer_val.clone());
-        for j in i+1..strs.len(){
-            if is_anagram(outer_val, &strs[j]){
-                anagrams.push(strs[j].clone())
+
+        for j in strs.iter().skip(i + 1){
+            if is_anagram(outer_val, j){
+                anagrams.push(j.clone());
             }
-            //else{
-            //    not.push(strs[j].clone())
-            //}
         }
         result.push(anagrams);
     }
@@ -71,6 +69,15 @@ fn is_anagram(s: &str, t: &str) -> bool{
 fn _do_test(strs: Vec<String>, expected: Vec<Vec<String>>){
     let strings = strs.clone();
     let result = group_anagrams(strs);
+    
+    // how can i check that result contains expected collections of strings
+    // disregarding the specific order of the strings?
+    for x in &expected{
+        assert!(
+            result.contains(x)
+        )
+    }
+    
     assert!(
         result == expected,
         "\ninput = {strings:?}, Expected = {expected:?} but got {result:?}\n"

@@ -51,7 +51,7 @@ pub fn hamming_weight (n: u32) -> i32 {
     let mut one_count = 0;
     while m > 0{
         m = BitAnd::bitand(m, m - 1);    //m = m & (m - 1);
-        one_count = one_count + 1;
+        one_count += 1; //one_count = one_count + 1;
     }
 
     one_count as i32

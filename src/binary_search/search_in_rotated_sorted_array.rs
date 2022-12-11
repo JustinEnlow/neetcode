@@ -51,14 +51,20 @@ pub fn search(nums: Vec<i32>, target: i32) -> i32 {
                 left = middle + 1;
             }
         }
-        else{
-            if nums[middle] <= target && target <= nums[right]{
-                left = middle + 1;
-            }
-            else{
-                right = middle - 1;
-            }
+        else if nums[middle] <= target && target <= nums[right]{
+            left = middle + 1;
         }
+        else{
+            right = middle - 1;
+        }
+        //else{
+        //    if nums[middle] <= target && target <= nums[right]{
+        //        left = middle + 1;
+        //    }
+        //    else{
+        //        right = middle - 1;
+        //    }
+        //}
     }
 
     -1

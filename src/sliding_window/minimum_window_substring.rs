@@ -42,7 +42,8 @@ pub fn min_window(s: String, t: String) -> String{
             window_start += 1;
         }
         else{
-            if !(window_end + 1 > last_index){
+            //if !(window_end + 1 > last_index){
+            if window_end < last_index{
                 window_end += 1;
             }
             else{
@@ -71,7 +72,7 @@ fn contains_t_chars(substring: &str, t: &str) -> bool{
 fn _do_test(s: &str, t: &str, expected: &str){
     let result = min_window(s.to_string(), t.to_string());
     assert!(
-        result == expected.to_string(),
+        result == *expected,//expected.to_string(),
         "\nInput = {s:?} and {t:?}, expected = {expected:?} but \
         got {result:?}\n"
     )

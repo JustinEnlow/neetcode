@@ -12,7 +12,7 @@
 //    -105 <= nums[i] <= 105
 
 
-
+use std::cmp::Ordering;
 
 
 pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
@@ -31,19 +31,35 @@ pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
         while left < right{
             let sum = num + nums[left] + nums[right];
             
-            if sum > 0{
-                right = right - 1;
-            }
-            else if sum < 0{
-                left = left + 1;
-            }
-            else{
-                result.push(vec![num, nums[left], nums[right]]);
-                println!("{:?}", result);
-                left = left + 1;
+            //if sum > 0{
+            //    right -= 1; //right = right - 1;
+            //}
+            //else if sum < 0{
+            //    left += 1; //left = left + 1;
+            //}
+            //else{
+            //    result.push(vec![num, nums[left], nums[right]]);
+            //    println!("{:?}", result);
+            //    left += 1; //left = left + 1;
+            //
+            //    while nums[left] == nums[left - 1] && left < right{
+            //        left += 1; //left = left + 1;
+            //    }
+            //}
+            match sum.cmp(&0){
+                Ordering::Greater => {
+                    right -= 1; //right = right - 1;
+                },
+                Ordering::Less => {
+                    left += 1; //left = left + 1;
+                },
+                Ordering::Equal => {
+                    result.push(vec![num, nums[left], nums[right]]);
+                    left += 1; //left = left + 1;
 
-                while nums[left] == nums[left - 1] && left < right{
-                    left = left + 1;
+                    while nums[left] == nums[left - 1] && left < right{
+                        left += 1; //left = left + 1;
+                    }
                 }
             }
         }

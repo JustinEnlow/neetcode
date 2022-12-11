@@ -17,7 +17,21 @@
 
 
 
-pub fn is_subsequence(_s: String, _t: String) -> bool{
+pub fn is_subsequence(s: String, t: String) -> bool{
+    let mut new_t = String::new();
+
+    for s_char in s.chars(){
+        for t_char in t.chars(){
+            if t_char == s_char{
+                new_t.push(t_char);
+            }
+        }
+    }
+
+    if new_t == s{
+        return true;
+    }
+    
     false
 }
 

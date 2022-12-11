@@ -16,27 +16,10 @@
 
 
 pub fn single_number(nums: Vec<i32>) -> i32{
-    let non_matching: i32;
+    let mut non_matching = 0;
 
-    if nums.len() == 1{
-        return nums[0];
-    }
-
-    let mut start = 0;
-    let mut end = 1;
-    loop{
-        if !(nums[start] ^ nums[end] == 0){
-            non_matching = nums[end];
-            break;
-        }
-        if end + 1 < nums.len(){
-            start += 1;
-            end += 1;
-        }
-        else{
-            non_matching = nums[end];
-            break;
-        }
+    for num in nums{
+        non_matching ^= num; //non_matching = num ^ non_matching;
     }
 
     non_matching

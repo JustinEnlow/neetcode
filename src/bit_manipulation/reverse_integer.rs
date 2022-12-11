@@ -11,9 +11,32 @@
 //    -231 <= x <= 231 - 1 
 
 
-
+// had to watch explanation vid.
+// i don't know that i would categorize this as a bit manipulation problem.
+// it is really a digit manipulation problem, using % and / tricks
 pub fn reverse(x: i32) -> i32{
-    x
+    let mut x = x;
+    
+    let mut res = 0;
+    //while x != 0{
+    loop{
+        if x == 0{break;}
+
+        let digit = x % 10; //preserves remainder
+        x /= 10; //x = x / 10 //drops remainder
+    
+        // catch overflows
+        if res > i32::MAX / 10 || (res == i32::MAX / 10 && digit >= i32::MAX % 10){
+            return 0;
+        }
+        if res < i32::MIN / 10 || (res == i32::MIN / 10 && digit <= i32::MIN % 10){
+            return 0;
+        }
+    
+        res = (res * 10) + digit;
+    }
+    
+    res
 }
 
 
@@ -29,6 +52,8 @@ fn _do_test(x: i32, expected: i32){
 #[test]
 fn example_1(){
     //Example 1: Input: x = 123, Output: 321
+    //123 = 0b
+    //321 = 0b
     _do_test(123, 321);
 }
 

@@ -17,12 +17,15 @@ pub fn length_of_longest_substring(s: String) -> i32 {
     let mut longest_substring = 0;
     
     for (i, char) in s.chars().enumerate(){
-        match hashmap.get(&char){
-            Some(&val) => {
-                start = if val > start{val}
-                        else{start};
-            },
-            None => {}
+        //match hashmap.get(&char){
+        //    Some(&val) => {
+        //        start = if val > start{val}
+        //                else{start};
+        //    },
+        //    None => {}
+        //}
+        if let Some(&val) = hashmap.get(&char){
+            start = if val > start{val}else{start};
         }
         
         let potential_longest = (i + 1) - start;

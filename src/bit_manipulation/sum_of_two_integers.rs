@@ -16,7 +16,7 @@ pub fn get_sum(a: i32, b: i32) -> i32 {
 
     loop{   // loop until no carries left
         let carry = (a & b) << 1;   //(a bitwise_and b) left_shift 1
-        a = a ^ b;  //xor
+        a ^= b; //a = a ^ b;  //xor
         b = carry;
 
         if b == 0{break;}

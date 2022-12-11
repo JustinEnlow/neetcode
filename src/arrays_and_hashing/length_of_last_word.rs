@@ -14,8 +14,29 @@
 
 
 
-pub fn length_of_last_word(_s: String) -> i32{
-    0
+pub fn length_of_last_word(s: String) -> i32{
+    // "cheat" solution using built in functions
+    //let words: Vec<&str> = s.split_whitespace().collect();
+    //let last = words.last().unwrap();
+
+    //last.len() as i32
+    // or
+    //s.split_whitespace().collect::<Vec<&str>>().last().unwrap().len() as i32
+
+
+
+    let mut i = s.len() - 1;
+    let mut length = 0;
+    
+    while s.chars().nth(i).unwrap() == ' '{
+        i -= 1;
+    }
+    while i > 0 && s.chars().nth(i).unwrap() != ' '{
+        length += 1;
+        i -= 1;
+    }
+
+    length
 }
 
 

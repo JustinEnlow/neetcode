@@ -14,6 +14,31 @@
 
 
 pub fn replace_elements(arr: Vec<i32>) -> Vec<i32>{
+    // figure out how to do this with for loop. was having trouble mutating values in arr when borrowing arr for the loop
+    let mut arr = arr;
+    
+    let mut i = 0;
+    loop{
+        if i == arr.len() - 1{
+            arr[i] = -1;
+            break;
+        }
+
+        let mut index_of_largest = 0;
+        let mut largest = 0;
+        //for j in i + 1..arr.len(){
+        for (j, _) in arr.iter().enumerate().skip(i + 1){
+            if arr[j] > largest{
+                largest = arr[j];
+                index_of_largest = j;
+            }
+        }
+
+        arr[i] = arr[index_of_largest];
+
+        i += 1;
+    }
+    
     arr
 }
 

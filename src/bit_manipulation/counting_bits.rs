@@ -20,7 +20,7 @@ pub fn count_bits(n: i32) -> Vec<i32> {
         
         while x > 0{
             x = BitAnd::bitand(x, x - 1);    //m = m & (m - 1);
-            one_count = one_count + 1;
+            one_count += 1; //one_count = one_count + 1;
         }
 
         ans.push(one_count as i32);

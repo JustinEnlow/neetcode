@@ -15,6 +15,13 @@
 
 
 pub fn longest_common_prefix(_strs: Vec<String>) -> String{
+    //let mut longest_prefix = String::new();
+    //
+    //let mut relevent_char = ' ';
+    //for str in strs{
+    //    
+    //}
+    
     "".to_string()
 }
 
@@ -25,7 +32,7 @@ pub fn longest_common_prefix(_strs: Vec<String>) -> String{
 fn _do_test(strs: &[String], expected: &str){
     let result = longest_common_prefix(strs.to_vec());
     assert!(
-        &result == expected,
+        result == expected,
         "\nInput = {strs:?}, expected {expected:?} but got {result:?}\n"
     )
 }
@@ -34,11 +41,7 @@ fn _do_test(strs: &[String], expected: &str){
 fn example_1(){
     //Example 1: Input: strs = ["flower","flow","flight"], Output: "fl"
     _do_test(
-        &[
-            "flower".to_string(), 
-            "flow".to_string(), 
-            "flight".to_string()
-        ], 
+        &["flower".to_string(), "flow".to_string(), "flight".to_string()], 
         "fl"
     );
 }
@@ -48,11 +51,7 @@ fn example_2(){
     //Example 2: Input: strs = ["dog","racecar","car"], Output: ""
     //Explanation: There is no common prefix among the input strings.
     _do_test(
-        &[
-            "dog".to_string(), 
-            "racecar".to_string(), 
-            "car".to_string()
-        ], 
+        &["dog".to_string(), "racecar".to_string(), "car".to_string()], 
         ""
     );
 }
