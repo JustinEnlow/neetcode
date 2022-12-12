@@ -1,12 +1,12 @@
 // 128. Longest Consecutive Sequence
-
+//
 // Given an unsorted array of integers nums, return the length of the longest 
 // consecutive elements sequence.
 // You must write an algorithm that runs in O(n) time.
-
-//Constraints:
-//    0 <= nums.length <= 105
-//    -109 <= nums[i] <= 109
+//
+// Constraints:
+//     0 <= nums.length <= 105
+//     -109 <= nums[i] <= 109
 
 
 use std::collections::HashSet;
@@ -57,13 +57,14 @@ fn _do_test(nums: &[i32], expected: i32){
 
 #[test]
 fn example_1(){
-    // Example 1: Input: nums = [100,4,200,1,3,2], Output: 4
-    // Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+    //Input: nums = [100,4,200,1,3,2], Output: 4
+    // Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. 
+    // Therefore its length is 4.
     _do_test(&[100, 4, 200, 1, 3, 2], 4);
 }
 
 #[test]
 fn example_2(){
-    // Example 2: Input: nums = [0,3,7,2,5,8,4,6,0,1], Output: 9
+    //Input: nums = [0,3,7,2,5,8,4,6,0,1], Output: 9
     _do_test(&[0, 3, 7, 2, 5, 8, 4, 6, 0, 1], 9);
 }

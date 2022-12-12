@@ -10,3 +10,4 @@ pub mod replace_elements_with_greatest_element_on_right_side;
 pub mod is_subsequence;
 pub mod length_of_last_word;
 pub mod longest_common_prefix;
+pub mod pascals_triangle;

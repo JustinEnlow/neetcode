@@ -1,10 +1,10 @@
 // 371. Sum of Two Integers
-
+//
 // Given two integers a and b, return the sum of the two integers without using 
 // the operators + and -.
-
-//Constraints:
-//    -1000 <= a, b <= 1000
+//
+// Constraints:
+//     -1000 <= a, b <= 1000
 
 
 
@@ -39,12 +39,12 @@ fn _do_test(a: i32, b: i32, expected: i32){
 
 #[test]
 fn example_1(){
-    //Example 1: Input: a = 1, b = 2, Output: 3
+    //Input: a = 1, b = 2, Output: 3
     _do_test(1, 2, 3);
 }
 
 #[test]
 fn example_2(){
-    //Example 2: Input: a = 2, b = 3, Output: 5
+    //Input: a = 2, b = 3, Output: 5
     _do_test(2, 3, 5);
 }

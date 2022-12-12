@@ -1,11 +1,11 @@
 // Given an integer array nums and an integer k, return the k most frequent 
 // elements. You may return the answer in any order.
-
-//Constraints:
-//    1 <= nums.length <= 105
-//    -104 <= nums[i] <= 104
-//    k is in the range [1, the number of unique elements in the array].
-//    It is guaranteed that the answer is unique.
+//
+// Constraints:
+//     1 <= nums.length <= 105
+//     -104 <= nums[i] <= 104
+//     k is in the range [1, the number of unique elements in the array].
+//     It is guaranteed that the answer is unique.
 
 
 
@@ -63,12 +63,12 @@ fn _do_test(nums: &[i32], k: i32, expected: &[i32]){
 
 #[test]
 fn example_1(){
-    //Example 1: Input: nums = [1,1,1,2,2,3], k = 2, Output: [1,2]
+    //Input: nums = [1,1,1,2,2,3], k = 2, Output: [1,2]
     _do_test(&[1, 1, 1, 2, 2, 3], 2, &[1, 2]);
 }
 
 #[test]
 fn example_2(){
-    //Example 2: Input: nums = [1], k = 1, Output: [1]
+    //Input: nums = [1], k = 1, Output: [1]
     _do_test(&[1], 1, &[1]);
 }

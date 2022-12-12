@@ -2,19 +2,14 @@
 //
 // An Anagram is a word or phrase formed by rearranging the letters of a 
 // different word or phrase, typically using all the original letters exactly once.
-
-//Constraints:
-//    1 <= s.length, t.length <= 5 * 104
-//    s and t consist of lowercase English letters.
+//
+// Constraints:
+//     1 <= s.length, t.length <= 5 * 104
+//     s and t consist of lowercase English letters.
 
 
 use std::collections::HashMap;
 
-//fn main() {
-//    let s = "anagram";
-//    let t = "nagaram";
-//    is_anagram(s, t);
-//}
 
 pub fn is_anagram(s: String, t: String) -> bool {
     ///////////////////////////////////////////////////////////////////////////
@@ -80,12 +75,12 @@ fn _do_test(s: &str, t: &str, expected: bool){
 
 #[test]
 fn example_1(){
-    //Example 1: Input: s = "anagram", t = "nagaram", Output: true
+    //Input: s = "anagram", t = "nagaram", Output: true
     _do_test("anagram", "nagaram", true);
 }
 
 #[test]
 fn example_2(){
-    //Example 2: Input: s = "rat", t = "car", Output: false
+    //Input: s = "rat", t = "car", Output: false
     _do_test("rat", "car", false);
 }

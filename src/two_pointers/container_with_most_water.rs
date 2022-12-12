@@ -5,11 +5,11 @@
 // container contains the most water.
 // Return the maximum amount of water a container can store.
 // Notice that you may not slant the container.
-
-//Constraints:
-//    n == height.length
-//    2 <= n <= 105
-//    0 <= height[i] <= 104
+//
+// Constraints:
+//     n == height.length
+//     2 <= n <= 105
+//     0 <= height[i] <= 104
 
 
 
@@ -66,7 +66,7 @@ fn _do_test(height: &[i32], expected: i32){
 
 #[test]
 fn example_1(){
-    //Example 1: Input: height = [1,8,6,2,5,4,8,3,7], Output: 49
+    //Input: height = [1,8,6,2,5,4,8,3,7], Output: 49
     //Explanation: The above vertical lines are represented by array 
     //[1,8,6,2,5,4,8,3,7]. In this case, the max area of water 
     //(blue section) the container can contain is 49.
@@ -75,6 +75,6 @@ fn example_1(){
 
 #[test]
 fn example_2(){
-    //Example 2: Input: height = [1,1], Output: 1
+    //Input: height = [1,1], Output: 1
     _do_test(&[1, 1], 1);
 }

@@ -9,11 +9,11 @@
 //     A Sudoku board (partially filled) could be valid but is not necessarily 
 //     solvable.
 //     Only the filled cells need to be validated according to the mentioned rules.
-
-//Constraints:
-//    board.length == 9
-//    board[i].length == 9
-//    board[i][j] is a digit 1-9 or '.'.
+//
+// Constraints:
+//     board.length == 9
+//     board[i].length == 9
+//     board[i][j] is a digit 1-9 or '.'.
 
 
 
@@ -40,7 +40,6 @@ fn _do_test(board: &[Vec<char>], expected: bool){
 
 #[test]
 fn tests(){
-    //Example 1:
     //Input: board = 
     //[["5","3",".",".","7",".",".",".","."]
     //,["6",".",".","1","9","5",".",".","."]
@@ -70,7 +69,6 @@ fn tests(){
 
 #[test]
 fn example_2(){
-    //Example 2:
     //Input: board = 
     //[["8","3",".",".","7",".",".",".","."]
     //,["6",".",".","1","9","5",".",".","."]
