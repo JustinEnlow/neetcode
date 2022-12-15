@@ -11,3 +11,6 @@ pub mod is_subsequence;
 pub mod length_of_last_word;
 pub mod longest_common_prefix;
 pub mod pascals_triangle;
+pub mod remove_element;
+pub mod unique_email_addresses;
+pub mod isomorphic_strings;
