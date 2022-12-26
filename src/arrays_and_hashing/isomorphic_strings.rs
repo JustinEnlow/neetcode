@@ -14,9 +14,22 @@
 //     t.length == s.length
 //     s and t consist of any valid ascii character.
 
+use std::collections::HashMap;
 
-pub fn is_isomorphic(_s: String, _t: String) -> bool{
-    false
+pub fn is_isomorphic(s: String, t: String) -> bool{
+    let mut hashmap = HashMap::new();
+    
+    let mut new_s = String::new();
+    for (i, char) in s.chars().enumerate(){
+        hashmap.insert(char, t.chars().nth(i).unwrap());
+    }
+
+    for char in s.chars(){
+        let idk = hashmap.get(&char).unwrap();
+        new_s.push(*idk);
+    }
+
+    new_s == t
 }
 
 

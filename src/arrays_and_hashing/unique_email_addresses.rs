@@ -31,8 +31,56 @@
 
 
 
-pub fn num_unique_emails(_emails: Vec<String>) -> i32{
-    0
+pub fn num_unique_emails(emails: Vec<String>) -> i32{
+    let mut new_emails = Vec::new();
+
+    for email in emails{
+        let mut before_at = true;
+        let mut after_t = false;
+        let mut new_email = String::new();
+        
+        for char in email.chars(){
+            match char{
+                '.' => {
+                    if before_at{
+                        continue;
+                    }
+                    else{
+                        new_email.push(char);
+                    }
+                },
+                '+' => {
+                    after_t = true;
+                },
+                '@' => {
+                    new_email.push(char);
+                    before_at = false;
+                },
+                _ => {
+                    if after_t && before_at{
+                        continue;
+                    }
+                    else{
+                        new_email.push(char);
+                    }
+                }
+            }
+        }
+
+        new_emails.push(new_email);
+    }
+
+    let mut count = 0;
+    for (i, _) in new_emails.iter().enumerate(){
+        if i + 1 < new_emails.len() && new_emails[i] != new_emails[i + 1]{
+            count += 1;
+        }
+        if i + 1 == new_emails.len(){
+            count += 1;
+        }
+    }
+
+    count
 }
 
 
